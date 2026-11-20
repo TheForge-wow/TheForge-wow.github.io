@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lifeline – Party &amp; Raid Frames for WoW Forever | The Forge</title>
+<meta name="description" content="Lifeline: clean, lightweight party and raid frames for WoW Forever, with click-casting, dispel highlights, buff reminders and profiles. Try the live demo.">
+<meta property="og:title" content="Lifeline – Party &amp; Raid Frames for WoW Forever">
+<meta property="og:description" content="Clean, lightweight party and raid frames with click-casting, buff reminders and profiles. Try the live demo.">
+<meta property="og:image" content="https://scryptik-nunya.github.io/assets/img/og-lifeline.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <img src="../assets/img/forge-icon.png" alt="" width="48" height="48">
+      <span class="brand-name"><strong>The Forge</strong><span>by Scryptik</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#addons">Addons</a>
+      <a href="#demo">Live demo</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-sm btn-accent" href="https://discord.gg/yskDeZjQj7">Join The Forge</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Addons</a> / <span>Lifeline</span></nav>
+    <section class="addon-hero">
+      <div>
+        <div style="display: flex; align-items: center; gap: 16px">
+          <img src="../assets/img/lifeline-icon.png" alt="Lifeline logo" width="72" height="72">
+          <div class="row" style="gap: 8px">
+            <span class="pill pill-live">v1.2.4 · Live</span>
+            <span class="pill pill-gray">WoW Forever</span>
+          </div>
+        </div>
+        <h1>Lifeline</h1>
+        <p>Clean, lightweight party and raid frames for WoW Forever, with click-casting, buff reminders and profiles.</p>
+        <div class="row">
+          <a class="btn btn-curse" href="https://www.curseforge.com/wow/addons/lifeline-cell-2">Download on CurseForge</a>
+          <a class="btn btn-ghost" href="#demo">Try it live</a>
+        </div>
+      </div>
+      <figure>
+        <img class="shot" src="../assets/img/lifeline/06_status_effects.webp" alt="Lifeline Status Effects settings next to a raid showing CC'D, ICE BLOCK and DRINKING banners" width="1920" height="1080">
+        <figcaption>CC'D, ICE BLOCK and DRINKING banners in a raid</figcaption>
+      </figure>
+    </section>
+  </div>
+
+  <!-- Live demo -->
+  <section id="demo" class="wrap section" style="padding-top: 0">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 class="section-title">Try it live</h2>
+        <p class="lede">A simulated fight in your browser. Change the settings and watch the frames update.</p>
+      </div>
+      <button type="button" class="btn btn-ghost" id="run" style="background: var(--surface); cursor: pointer; font-family: var(--body)">Pause fight</button>
+    </div>
+    <div class="demo">
+      <div class="demo-controls">
+        <div class="ctl"><span class="ctl-label" id="lbl-layout">LAYOUT</span>
+          <div class="seg" style="grid-template-columns: repeat(4, minmax(0, 1fr))" role="group" aria-labelledby="lbl-layout" data-key="layout">
+            <button type="button" data-v="party">Party</button><button type="button" data-v="10">10</button><button type="button" data-v="20">20</button><button type="button" data-v="40">40</button>
+          </div>
+        </div>
+        <div class="ctl"><span class="ctl-label" id="lbl-orient">GROUP DIRECTION</span>
+          <div class="seg" style="grid-template-columns: repeat(2, minmax(0, 1fr))" role="group" aria-labelledby="lbl-orient" data-key="orient">
+            <button type="button" data-v="vertical">Vertical</button><button type="button" data-v="horizontal">Horizontal</button>
+          </div>
+        </div>
+        <div class="ctl"><span class="ctl-label" id="lbl-color">HEALTH BAR COLOR</span>
+          <div class="seg" style="grid-template-columns: repeat(3, minmax(0, 1fr))" role="group" aria-labelledby="lbl-color" data-key="color">
+            <button type="button" data-v="class">Class</button><button type="button" data-v="dark">Dark</button><button type="button" data-v="single">Single</button>
+          </div>
+        </div>
+        <div class="ctl"><span class="ctl-label">INDICATORS</span>
+          <button type="button" class="toggle" data-toggle="dispel"><span>Dispel highlights</span><span class="track"></span></button>
+          <button type="button" class="toggle" data-toggle="range"><span>Out-of-range fading</span><span class="track"></span></button>
+          <button type="button" class="toggle" data-toggle="buffs"><span>Missing buff icons</span><span class="track"></span></button>
+          <button type="button" class="toggle" data-toggle="absorbs"><span>Heals &amp; absorbs</span><span class="track"></span></button>
+          <button type="button" class="toggle" data-toggle="banners"><span>Status banners</span><span class="track"></span></button>
+        </div>
+      </div>
+      <div class="demo-stage">
+        <div class="frames-scroll"><div class="frames" id="frames" aria-label="Simulated raid frames"></div></div>
+        <div class="legend" id="legend"></div>
+        <p class="note">Simulated in the browser to show Lifeline's options. Your in-game frames may look slightly different depending on your settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap section">
+      <h2 class="section-title">Features</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))">
+        <div class="feature"><h3>Party &amp; raid layouts</h3><p>Party (2–5) and raid (6–40) frames, with separate 10, 20 and 40-player layouts that switch automatically, plus a movable tank group.</p></div>
+        <div class="feature"><h3>Healing at a glance</h3><p>Incoming heals, absorb shields and overheal on class-colored, dark or single-color health bars, with out-of-range fading.</p></div>
+        <div class="feature"><h3>Smart dispel highlights</h3><p>Only debuffs your class can remove light up, in standard, colorblind-friendly or custom colors.</p></div>
+        <div class="feature"><h3>Buff &amp; debuff indicators</h3><p>Buff icons in nine positions, shown while active or only when missing, plus a large center display for boss debuffs and crowd control.</p></div>
+        <div class="feature"><h3>Click-casting</h3><p>Bind left, right, middle, scroll and mouse buttons 4–16 with Shift, Ctrl or Alt. Plain spell names cast your highest rank. Works with Clique.</p></div>
+        <div class="feature"><h3>Profiles you can share</h3><p>Use one shared profile or per-character settings, and export your whole setup as a code to share with friends.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="gallery">
+      <figure><a href="../assets/img/lifeline/01_general.webp"><img src="../assets/img/lifeline/01_general.webp" alt="Lifeline general settings" loading="lazy" width="1920" height="1080"></a><figcaption>General</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/02_layout.webp"><img src="../assets/img/lifeline/02_layout.webp" alt="Lifeline layout settings and a 25-player raid" loading="lazy" width="1920" height="1080"></a><figcaption>Layout</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/03_appearance.webp"><img src="../assets/img/lifeline/03_appearance.webp" alt="Lifeline appearance settings" loading="lazy" width="1920" height="1080"></a><figcaption>Appearance</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/04_icons_status.webp"><img src="../assets/img/lifeline/04_icons_status.webp" alt="Lifeline icons and status settings" loading="lazy" width="1920" height="1080"></a><figcaption>Icons &amp; status</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/05_dispels.webp"><img src="../assets/img/lifeline/05_dispels.webp" alt="Lifeline dispel highlight settings" loading="lazy" width="1920" height="1080"></a><figcaption>Dispels</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/06_status_effects.webp"><img src="../assets/img/lifeline/06_status_effects.webp" alt="Lifeline status effects settings" loading="lazy" width="1920" height="1080"></a><figcaption>Status effects</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/07_buff_indicators.webp"><img src="../assets/img/lifeline/07_buff_indicators.webp" alt="Lifeline buff indicator settings" loading="lazy" width="1920" height="1080"></a><figcaption>Buff indicators</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/08_debuff_filters.webp"><img src="../assets/img/lifeline/08_debuff_filters.webp" alt="Lifeline debuff filter settings" loading="lazy" width="1920" height="1080"></a><figcaption>Debuff filters</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/09_click_casting.webp"><img src="../assets/img/lifeline/09_click_casting.webp" alt="Lifeline click-casting settings" loading="lazy" width="1920" height="1080"></a><figcaption>Click-casting</figcaption></figure>
+      <figure><a href="../assets/img/lifeline/10_profiles.webp"><img src="../assets/img/lifeline/10_profiles.webp" alt="Lifeline profile settings" loading="lazy" width="1920" height="1080"></a><figcaption>Profiles</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="install" class="band">
+    <div class="wrap section">
+      <h2 class="section-title">How to install</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))">
+        <div class="card">
+          <div class="card-top"><h3 style="font-size: 20px">CurseForge app</h3><span class="pill pill-accent">Easiest</span></div>
+          <ol class="steps">
+            <li>Open the CurseForge app and pick World of Warcraft.</li>
+            <li>Choose your WoW Forever install.</li>
+            <li>Search for <strong>Lifeline</strong> and click Install.</li>
+            <li>Launch the game. Updates install automatically.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 20px">Manual install</h3>
+          <ol class="steps">
+            <li>Download the .zip from CurseForge.</li>
+            <li>Extract the <strong>Lifeline</strong> folder.</li>
+            <li>Move it into <code class="inline-code">Interface\AddOns</code> in your WoW Forever folder.</li>
+            <li>Restart the game and check it's enabled on the AddOns screen.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 20px">Commands</h3>
+        <div class="table-scroll">
+          <table class="cmds">
+            <tbody>
+              <tr><td><code>/ll</code></td><td>Open or close settings</td></tr>
+              <tr><td><code>/ll unlock · /ll lock</code></td><td>Unlock or lock frames for moving</td></tr>
+              <tr><td><code>/ll test</code></td><td>Toggle the preview layout</td></tr>
+              <tr><td><code>/ll showcase</code></td><td>Preview with every indicator on</td></tr>
+              <tr><td><code>/ll news</code></td><td>Show what's new in this version</td></tr>
+              <tr><td><code>/ll debug</code></td><td>Open a copyable bug report</td></tr>
+              <tr><td><code>/ll reset</code></td><td>Reset frame position</td></tr>
+              <tr><td><code>/ll minimap</code></td><td>Show or hide the minimap button</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap section">
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq">
+      <div><h3>Is Lifeline free?</h3><p>Yes. All of The Forge's addons are free on CurseForge.</p></div>
+      <div><h3>How do I move my frames?</h3><p>Type /ll unlock, drag the green bar to where you want your frames, then type /ll lock.</p></div>
+      <div><h3>I found a bug. Where do I report it?</h3><p>Type /ll debug in game, copy the report it opens (Ctrl+C), and paste it into The Forge Discord.</p></div>
+    </div>
+    <div class="cta" style="padding: 40px">
+      <div>
+        <h2 style="font-size: 28px">Want test builds first?</h2>
+        <p style="font-size: 16px">Join The Forge to try new Lifeline features before release and shape what comes next.</p>
+      </div>
+      <a class="btn btn-discord" href="https://discord.gg/yskDeZjQj7">Join the Discord</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-brand"><img src="../assets/img/scryptik-logo.png" alt="" width="36" height="36"><span>Made by Scryptik · © 2026. Not affiliated with Blizzard Entertainment.</span></span>
+    <a href="../">← All addons</a>
+  </div>
+</footer>
+
+<script src="../assets/js/lifeline-demo.js"></script>
+</body>
+</html>
