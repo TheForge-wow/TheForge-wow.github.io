@@ -179,3 +179,8 @@ figcaption { font-size: 13px; color: var(--faint); }
   html { scroll-behavior: auto; }
   .unit, .unit * { transition: none !important; }
 }
+
+/* View counter */
+.footer-text { display: flex; flex-direction: column; gap: 4px; }
+.views { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--faint); }
+.views[hidden] { display: none; }
